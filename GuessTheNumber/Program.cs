@@ -7,13 +7,10 @@
             Console.WriteLine("Hello, World!");
             
             Random random = new Random();
-            int randomNumber = random.Next(0, 100);
+            int randomNumber = random.Next(0, 101);
             int nr_tries = 0;   
             
 
-            //if (intguess ==  randomNumber) { Console.WriteLine("You Won!"); }
-            //else if (intguess > randomNumber) { Console.WriteLine("Too High!"); }
-            //else { Console.WriteLine("Too Low!"); 
 
             while (true) {
                 int hemmelig = randomNumber;
