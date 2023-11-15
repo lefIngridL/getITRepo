@@ -9,13 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomHobby", "..\RandomHob
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuessTheNumber", "..\GuessTheNumber\GuessTheNumber.csproj", "{E342D8B8-0DB0-42B7-A8EA-920FF074DC9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Undervisning1_Terje", "..\Undervisning1_Terje\Undervisning1_Terje.csproj", "{08E89259-7F79-4860-A625-E62EF7F0E28E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ref_type_vs_val_type", "..\Undervisning1_Terje\ref_type_vs_val_type.csproj", "{08E89259-7F79-4860-A625-E62EF7F0E28E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "if_else_oppgaver", "..\if_else_oppgaver\if_else_oppgaver.csproj", "{C87E6796-C1A4-40F2-809E-CC74EE7D4A78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "if_else_oppgaver", "..\if_else_oppgaver\if_else_oppgaver.csproj", "{C87E6796-C1A4-40F2-809E-CC74EE7D4A78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Switch_oppgaver", "..\Switch_oppgaver\Switch_oppgaver.csproj", "{1B7FD5BE-A6DC-42B1-A73F-A1A8126FCF65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Switch_oppgaver", "..\Switch_oppgaver\Switch_oppgaver.csproj", "{1B7FD5BE-A6DC-42B1-A73F-A1A8126FCF65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "loop_de_loops", "..\loop_de_loops\loop_de_loops.csproj", "{5D53EC57-7778-49CD-BF32-3A058D7A2448}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "loop_de_loops", "..\loop_de_loops\loop_de_loops.csproj", "{5D53EC57-7778-49CD-BF32-3A058D7A2448}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
