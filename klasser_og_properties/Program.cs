@@ -5,8 +5,10 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
-            Pokemon pikachu = new Pokemon(100, 30);
+            Pokemon pikachu = new Pokemon("Pikachu",100, 30);
             Console.WriteLine($"Helse: {pikachu.Health}, Alder: {pikachu.Level}");
+            Pokemon.PrintWelcomeMessage();
         }
+
     }
 }

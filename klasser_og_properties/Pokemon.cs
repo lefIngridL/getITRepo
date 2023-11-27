@@ -6,14 +6,25 @@ using System.Threading.Tasks;
 
 namespace klasser_og_properties_pokedex
 {
-    internal class Pokemon
+    public class Pokemon
     {
+        public string Name;
         public int Health { get; set; }
         public int Level { get; set; }
-        public Pokemon ( int health, int level )
+        public Pokemon (string name, int health, int level )
         {
+            Name = name;
             Health = health;
             Level = level;
+        }
+
+        public void PrintWelcomeMessage()
+        {
+            Console.WriteLine("Hei og velkommen");
+        }
+        public void PrintWelcomeMessage(string Name = "Terje") 
+        {
+            Console.WriteLine("Hei og velkommen" + Name);
         }
     }
 }
