@@ -30,17 +30,7 @@
             }
 
             
-            //for (int i = 0; i < 51; i++)
-            //{
-            //    nr1.Speed += 10;
-            //    Console.WriteLine($"Meter kjørt: {i} {nr1.Speed}");
-            //}
-
-            //while (nr1.Speed > 10)
-            //{
-            //    nr1.Speed -= 10;
-            //    Console.WriteLine(nr1.Speed);
-            //}
+            
             
 
         }
