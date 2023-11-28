@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abax", "Abax.csproj", "{47A5E0E9-3F28-435D-920C-632F4EC5849F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abax", "Abax.csproj", "{47A5E0E9-3F28-435D-920C-632F4EC5849F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentAdmSys", "..\StudentAdmSys\StudentAdmSys.csproj", "{719E05B3-0727-48F7-A018-B76B6C443025}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentAdmSys", "..\StudentAdmSys\StudentAdmSys.csproj", "{719E05B3-0727-48F7-A018-B76B6C443025}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Organ_Transplant", "..\Organ_Transplant\Organ_Transplant.csproj", "{DC084D94-125F-45EC-8973-86CEBCCAEF75}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriendFace", "..\Social_Media\FriendFace.csproj", "{104A0000-F058-436E-8929-4AFD65A7315A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codealong_c_1", "..\Codealong_c_1\Codealong_c_1.csproj", "{3FE1F511-FBD1-4299-AC15-303D98C7CC79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{719E05B3-0727-48F7-A018-B76B6C443025}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{719E05B3-0727-48F7-A018-B76B6C443025}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{719E05B3-0727-48F7-A018-B76B6C443025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC084D94-125F-45EC-8973-86CEBCCAEF75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC084D94-125F-45EC-8973-86CEBCCAEF75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC084D94-125F-45EC-8973-86CEBCCAEF75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC084D94-125F-45EC-8973-86CEBCCAEF75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{104A0000-F058-436E-8929-4AFD65A7315A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104A0000-F058-436E-8929-4AFD65A7315A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{104A0000-F058-436E-8929-4AFD65A7315A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104A0000-F058-436E-8929-4AFD65A7315A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FE1F511-FBD1-4299-AC15-303D98C7CC79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FE1F511-FBD1-4299-AC15-303D98C7CC79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FE1F511-FBD1-4299-AC15-303D98C7CC79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FE1F511-FBD1-4299-AC15-303D98C7CC79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
