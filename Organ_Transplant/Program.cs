@@ -1,10 +1,13 @@
-﻿namespace Organ_Transplant
+﻿using System.ComponentModel;
+
+namespace Organ_Transplant
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
+            
             MatchDonor();
         }
 
@@ -12,16 +15,19 @@
         {
             Organ sykNyre = new Organ("Nyre", 0.09);
             Organ friskNyre = new Organ("Nyre", 0.98);
-            Donor kåre = new Donor("Kåre", 32, "MALE", "AB", "Haplogruppe D", "MHC class I",friskNyre);
-            Recipient bernt = new Recipient("Bernt", 41, "MALE", "AB", "Haplogruppe D" ,"MHC class I", sykNyre);
+            Donor kåre = new Donor("Kåre", 32, "MALE",179, 88, "AB", "Haplogruppe D", "MHC class I",friskNyre);
+            Recipient bernt = new Recipient("Bernt", 41, "MALE", 182, 92, "AB", "Haplogruppe D" ,"MHC class I", sykNyre);
             
-            bernt.PrintInfo();
-            kåre.PrintInfo();
+            //bernt.PrintInfo();
+            //kåre.PrintInfo();
             systemInfo blod = new systemInfo();
-
-            blod.PrintInfo();
-
+            Console.WriteLine($"Antall haplogrupper: {blod.HaploGroups.Count}" );
+            //blod.PrintInfo();
+            bernt.Compare(bernt, kåre);
+            bernt.Add_Donor();
         }
+
+ 
     }
 }
 //Oppgave: Organ transplant!

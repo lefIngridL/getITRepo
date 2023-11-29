@@ -21,18 +21,13 @@
                     nr1.Distance += nr1.Speed;
                 }
                 else if (nr1.Distance > 500 && nr1.Distance > 0 && nr1.Speed >= 0)
-            {
-                Console.WriteLine($"fart: {nr1.Speed}, avstand: {nr1.Distance}");
+                {
+                    Console.WriteLine($"fart: {nr1.Speed}, avstand: {nr1.Distance}");
 
-                nr1.Speed -= 10;
-                nr1.Distance += nr1.Speed;
+                    nr1.Speed -= 10;
+                    nr1.Distance += nr1.Speed;
+                }
             }
-            }
-
-            
-            
-            
-
         }
     }
 }

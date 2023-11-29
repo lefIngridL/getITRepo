@@ -12,7 +12,15 @@ public class systemInfo
         "MHC class II"
     };
 
+    public List<string> HaploGroups = new List<string>()
+    {
+        "A", "B", "C", "CZ", "D", "E", "F", "G", "H", "HV", "I", "J", "pre-JT", "JT", "K", "L0", "L1", "L2", "L3", "L4", "L5", "L6", "M", "N", "P", "Q", "R", "R0", "S", "T", "U", "V", "W", "X", "Y", "Z"
+    };
 
+    public List<string> Gender = new List<string>()
+    {
+        "MALE", "FEMALE"
+    };
     public void PrintInfo()
     {
         Console.WriteLine("Mulige blodtyper: ");
@@ -21,6 +29,15 @@ public class systemInfo
             Console.WriteLine(type);
         }
         
+    }
+
+    public void PrintHaplo()
+    {
+        Console.WriteLine("Liste over haplogrupper:");
+        foreach (var haploGroup in HaploGroups)
+        {
+            Console.WriteLine(haploGroup);
+        }
     }
     
 }

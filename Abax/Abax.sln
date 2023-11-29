@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Organ_Transplant", "..\Orga
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriendFace", "..\Social_Media\FriendFace.csproj", "{104A0000-F058-436E-8929-4AFD65A7315A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codealong_c_1", "..\Codealong_c_1\Codealong_c_1.csproj", "{3FE1F511-FBD1-4299-AC15-303D98C7CC79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Codealong_c_1", "..\Codealong_c_1\Codealong_c_1.csproj", "{3FE1F511-FBD1-4299-AC15-303D98C7CC79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Par_2", "..\Par_2\Par_2.csproj", "{A17F58D2-DD1D-4210-872F-EB6E9AF2580B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{3FE1F511-FBD1-4299-AC15-303D98C7CC79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FE1F511-FBD1-4299-AC15-303D98C7CC79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FE1F511-FBD1-4299-AC15-303D98C7CC79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A17F58D2-DD1D-4210-872F-EB6E9AF2580B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A17F58D2-DD1D-4210-872F-EB6E9AF2580B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A17F58D2-DD1D-4210-872F-EB6E9AF2580B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A17F58D2-DD1D-4210-872F-EB6E9AF2580B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
