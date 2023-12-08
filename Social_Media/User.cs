@@ -31,8 +31,8 @@ public class User
         FriendList.Add(friend);
     }
 
-    public void RemoveFriend()
+    public void RemoveFriend(User friend)
     {
-
+        FriendList.Remove(friend);
     }
 }

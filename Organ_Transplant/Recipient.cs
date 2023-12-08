@@ -92,29 +92,33 @@ public class Recipient
         }
     }
 
-    public void Add_Donor()
+    public Donor Add_Donor()
     {
+        Console.Clear();
         systemInfo info = new systemInfo();
         Console.WriteLine("angi Navn på ny donor:");
-        string navn = Console.ReadLine();
+        string? navn = Console.ReadLine();
+        Console.WriteLine($"ny Donors navn er {navn}");
 
+        Console.Clear();
         Console.WriteLine("angi Alder ny donor: ");
-        string ageStr = Console.ReadLine();
+        string? ageStr = Console.ReadLine();
         int age = Convert.ToInt32(ageStr);
+        Console.WriteLine($"{navn}'s alder er {age}år");
 
 
         string sex = String.Empty;
         while (sex == String.Empty)
         {
-
+            Console.Clear();
             Console.WriteLine("angi kjønn ny donor, tast '1' for 'MALE', tast '2' for 'FEMALE'");
-            string sexStr = Console.ReadLine();
+            string? sexStr = Console.ReadLine();
             int sexInt = Convert.ToInt32(sexStr);
             if (sexInt == 1 || sexInt == 2)
             {
 
                 sex = info.Gender[sexInt - 1];
-                Console.WriteLine($"kjønnet er: {sex}");
+                Console.WriteLine($"kjønnet til {navn} er: {sex}");
 
             }
             else
@@ -123,74 +127,121 @@ public class Recipient
             }
         }
 
-
+        Console.Clear();
         Console.WriteLine("angi høyde ny donor (i cm):");
-        string heigthStr = Console.ReadLine();
+        string? heigthStr = Console.ReadLine();
         int heigth = Convert.ToInt32(heigthStr);
+        Console.WriteLine($"ny Donor {navn} er {heigth}cm høy.");
 
-        Console.WriteLine("angi vekt ny donor (i kg, heltall)");
-        string weigthStr = Console.ReadLine();
+        Console.Clear();
+        Console.WriteLine($"angi vekt ny donor {navn} (i kg, heltall)");
+        string? weigthStr = Console.ReadLine();
         int weigth = Convert.ToInt32(weigthStr);
+        Console.WriteLine($"ny Donor {navn} veier {weigth}kg");
 
+        Console.Clear();
         Console.WriteLine("angi blodtype ny donor");
         systemInfo blod = new systemInfo();
         blod.PrintInfo();
 
-        string bloodType = String.Empty;
+
+        string? bloodType = String.Empty;
         while (bloodType == String.Empty)
         {
+
             Console.WriteLine("oppgi et tall (1-8) for å velge blodtype fra listen over");
-            string bloodTypeStr = Console.ReadLine();
+            string? bloodTypeStr = Console.ReadLine();
             int bloodTypeInt = Convert.ToInt32(bloodTypeStr);
 
             if (bloodTypeInt > 0 && bloodTypeInt < 9)
             {
-                bloodType = info.Bloodtypes[bloodTypeInt-1];
+                bloodType = info.BloodTypes[bloodTypeInt - 1];
+                Console.WriteLine($"Du valgte nr {bloodTypeInt}. {navn}'s bloodtype er: {bloodType}");
             }
             else { Console.WriteLine("Invalid input; try again"); }
         }
 
 
-
+        Console.Clear();
         info.PrintHaplo();
-        string geneGroup = String.Empty;
+        string? geneGroup = String.Empty;
         while (geneGroup == String.Empty)
         {
+
             Console.WriteLine($"angi haplogruppe ny donor som tall 1-{info.HaploGroups.Count}");
-            string geneGroupStr = Console.ReadLine();
+            string? geneGroupStr = Console.ReadLine();
             int geneGroupInt = Convert.ToInt32(geneGroupStr);
 
             if (geneGroupInt > 0 && geneGroupInt <= info.HaploGroups.Count)
             {
-                geneGroup = info.HaploGroups[geneGroupInt-1];
-            } ;
+                geneGroup = info.HaploGroups[geneGroupInt - 1];
+                Console.WriteLine($"Du valgte nr. {geneGroupInt}. {navn}'s Haplogruppe er: {geneGroup}");
+            }
+            else
+            {
+                Console.WriteLine("Invalid input; try again");
+            }
         }
 
 
-        Console.WriteLine("angi MHC klasse ny donor; tast '1' for 'MHC class I' og tast '2' for 'MHC class II' ");
-        string imuneTypeStr = Console.ReadLine();
-        int imuneTypeInt = Convert.ToInt32(imuneTypeStr);
-        string imuneType;
-        if (imuneTypeInt == 1)
+        Console.Clear();
+        string? imuneType = String.Empty;
+        while (imuneType == String.Empty)
         {
-            imuneType = "MHC class I";
 
+            Console.WriteLine($"angi MHC klasse ny donor {navn}; tast '1' for '{info.ImmuneTypes[0]}' og tast '2' for '{info.ImmuneTypes[1]}' ");
+            string? imuneTypeStr = Console.ReadLine();
+            int imuneTypeInt = Convert.ToInt32(imuneTypeStr);
+            if (imuneTypeInt > (int)0 && imuneTypeInt < (int)3)
+            {
+                imuneType = info.ImmuneTypes[imuneTypeInt - 1];
+                Console.WriteLine($"Du har valgt nr. {imuneTypeInt}. {navn} har {imuneType}");
+            }
+            else
+            {
+                Console.WriteLine("Invalid input; try again");
+
+            }
         }
-        else if (imuneTypeInt == 2)
+        Console.Clear();
+        string? donOrgan_type = String.Empty;
+        while (donOrgan_type == String.Empty)
         {
-            imuneType = "MHC class II";
 
+            Console.WriteLine("velg type donor Organ fra listen som et heltall (1-6):");
+            info.PrintOrgan();
+            string? donOrgan_typeStr = Console.ReadLine();
+            int donOrgan_typeInt = Convert.ToInt32(donOrgan_typeStr);
+            if (donOrgan_typeInt > (int)0 && donOrgan_typeInt < (int)7)
+            {
+                donOrgan_type = info.Organs[donOrgan_typeInt - 1];
+                Console.WriteLine($"Du valgte nr. {donOrgan_typeInt}. Mulig donor Organ fra pasient {navn} er {donOrgan_type}");
+            }
         }
-        else
+
+        bool control = true;
+        double donOrgan_health = 0;
+
+        while (control)
         {
-            Console.WriteLine("Invalid input");
-
+            Console.Clear();
+            Console.WriteLine("angi helsescore for donor Organ som tall mellom 0 og 1:");
+            string? donOrgan_healthStr = Console.ReadLine();
+            double donOrgan_health_con = Convert.ToDouble(donOrgan_healthStr);
+            if (donOrgan_healthStr != null && donOrgan_health_con > (double)0 && donOrgan_health_con < (double)1)
+            {
+                donOrgan_health = Convert.ToDouble(donOrgan_healthStr);
+                Console.WriteLine($"Helsescore for {navn}'s {donOrgan_type} er {donOrgan_health}");
+                control = false;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input; try again");
+            }
         }
-        Console.WriteLine("angi type donor Organ:");
-        string donOrgan_type = Console.ReadLine();
-
-        Console.WriteLine("angi helsescore for donor Organ:");
-        string donOrgan_healthStr = Console.ReadLine();
-        double donOrgan_health = Convert.ToDouble(donOrgan_healthStr);
+        Console.Clear();
+        Organ newOrgan = new Organ($"{donOrgan_type}", donOrgan_health);
+        Donor newDonor = new Donor($"{navn}", age, $"{sex}", heigth, weigth, $"{bloodType}", $"{geneGroup}", $"{imuneType}", newOrgan);
+        return newDonor;
     }
 }

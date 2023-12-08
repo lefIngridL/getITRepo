@@ -6,8 +6,8 @@ namespace Organ_Transplant
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-            
+            Console.WriteLine("Velkommen til organ donor databasen!");
+
             MatchDonor();
         }
 
@@ -15,19 +15,24 @@ namespace Organ_Transplant
         {
             Organ sykNyre = new Organ("Nyre", 0.09);
             Organ friskNyre = new Organ("Nyre", 0.98);
-            Donor kåre = new Donor("Kåre", 32, "MALE",179, 88, "AB", "Haplogruppe D", "MHC class I",friskNyre);
-            Recipient bernt = new Recipient("Bernt", 41, "MALE", 182, 92, "AB", "Haplogruppe D" ,"MHC class I", sykNyre);
-            
+            Donor kåre = new Donor("Kåre", 32, "MALE", 179, 88, "AB+", "Haplogruppe D", "MHC class I", friskNyre);
+            Recipient bernt = new Recipient("Bernt", 41, "MALE", 182, 92, "AB+", "Haplogruppe D", "MHC class I", sykNyre);
+            systemInfo blod = new systemInfo();
             //bernt.PrintInfo();
             //kåre.PrintInfo();
-            systemInfo blod = new systemInfo();
-            Console.WriteLine($"Antall haplogrupper: {blod.HaploGroups.Count}" );
+
+
+            // Console.WriteLine(blod.Gender[0]);
+            //Console.WriteLine($"Antall haplogrupper: {blod.HaploGroups.Count}" );
             //blod.PrintInfo();
-            bernt.Compare(bernt, kåre);
-            bernt.Add_Donor();
+            //bernt.Compare(bernt, kåre);
+            var somenew = bernt.Add_Donor();
+            somenew.PrintInfo();
+            bernt.Compare(bernt, somenew);
+            //new Donor newDonor1 =
         }
 
- 
+
     }
 }
 //Oppgave: Organ transplant!

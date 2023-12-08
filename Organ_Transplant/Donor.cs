@@ -27,7 +27,7 @@ public class Donor
 
     public void PrintInfo()
     {
-        Console.WriteLine($"Potensiell organ donor:\nNavn: {Name}\nAlder: {Age}\nKjønn: {Sex}\nHøyde: {Heigth}\nVekt: {Weigth}\nBlod type: {BloodType}\nGenetikk: {GeneGroup}\nImmuntype: {ImuneType}\ndonor organ: {DonOrgan.Type}\nFunksjons score organ: {DonOrgan.HealthScore}");
+        Console.WriteLine($"Potensiell organ donor:\nNavn: {Name}\nAlder: {Age}\nKjønn: {Sex}\nHøyde: {Heigth}\nVekt: {Weigth}\nBlod type: {BloodType}\nHaplogruppe: {GeneGroup}\nImmuntype: {ImuneType}\ndonor organ: {DonOrgan.Type}\nFunksjons score organ: {DonOrgan.HealthScore}");
     }
 
     
