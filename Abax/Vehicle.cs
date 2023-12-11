@@ -2,19 +2,41 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Abax
 {
-    internal class Vehicle
+    abstract class Vehicle
     {
-        internal int weight { get; set; }
-        internal int maxSpeed { get; set; }
+        public string Reg_no { get; set; }
+        public decimal? Max_Speed { get; }
+        
+        public decimal Effect { get; set; }
 
-        public Vehicle(int weight, int maxSpeed)
+        public Vehicle_Type? Type { get; set; }
+
+
+        protected Dictionary<string, string> Enheter = new Dictionary<string, string>
         {
-            this.weight = weight;
-            this.maxSpeed = maxSpeed;
+            {nameof(Max_Speed), "km/t" },
+            {nameof(Effect), "kw" },
+        };
+        protected Vehicle(decimal? maxSpeed, string regNo, decimal effect, Vehicle_Type? type)
+        {
+            Max_Speed = maxSpeed;
+            Reg_no = regNo;
+            Effect = effect;
+            Type = type;
         }
+
+        public virtual void PrintInfo()
+        {
+            Console.WriteLine($"Reg.nr.: {Reg_no}");
+            Console.WriteLine($"Effekt: {Effect}kw");
+            Console.WriteLine($"Type: {Type}");
+        }
+
+        public abstract void Run(Vehicle vehicle);
     }
 }
