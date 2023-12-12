@@ -7,20 +7,19 @@ class Plane : Vehicle
     public int Wingspan { get;}
     public int Weigth_Capacity { get;}
     public int Weigth_Self { get;}
-    public string Plane_Class { get; }
 
-    public Plane(decimal? maxSpeed, string regNo, decimal effect, Vehicle_Type? type, int wingspan, int weigthCapacity, int weigthSelf, string planeClass) : base(maxSpeed, regNo, effect, type)
+
+    public Plane(decimal? maxSpeed, string regNo, decimal effect, Vehicle_Type? type, int wingspan, int weigthCapacity, int weigthSelf) : base(maxSpeed, regNo, effect, type)
     {
         Wingspan = wingspan;
         Weigth_Capacity = weigthCapacity;
         Weigth_Self = weigthSelf;
-        Plane_Class = planeClass;
     }
 
     public void PrintInfo()
     {
         base.PrintInfo();
-        Console.WriteLine($"Vingespenn: {Wingspan}m\nLasteevne: {Weigth_Capacity}tonn\nEgenvekt: {Weigth_Self}tonn\nFlyklasse: {Plane_Class}\n--------\n");
+        Console.WriteLine($"Vingespenn: {Wingspan}m\nLasteevne: {Weigth_Capacity}tonn\nEgenvekt: {Weigth_Self}tonn\n--------\n");
     }
 
     public override void Run(Vehicle vehicle)

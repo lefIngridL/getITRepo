@@ -26,7 +26,7 @@ class Boat : Vehicle
     public void Run(Boat boat)
     {
         base.PrintInfo();
-        Console.WriteLine(gross_tonnage);
+        Console.WriteLine($"Båten {boat.Reg_no} kjører");
     }
 
 

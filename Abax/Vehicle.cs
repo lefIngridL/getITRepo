@@ -35,7 +35,7 @@ namespace Abax
             Console.WriteLine($"Klasse: {this}");
             Console.WriteLine($"Type: {Type}");
             Console.WriteLine($"Reg.nr.: {Reg_no}");
-            Console.WriteLine($"Effekt: {Effect}kw");
+            Console.WriteLine($"Effekt: {Effect}{Enheter[nameof(Effect)]}");
             if (Max_Speed != null) Console.WriteLine($"Maksfart: {Max_Speed}{Enheter[nameof(Max_Speed)]}");
 
 

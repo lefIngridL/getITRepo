@@ -9,7 +9,7 @@
             Car bil2 = new Car(195,"NF654321",150, Vehicle_Type.LettKjøretøy, "blå");
             bil2.PrintInfo();
             bil1.Comp(bil2);
-            Plane fly1 = new Plane(null,"LN1234",1000,Vehicle_Type.Jetfly,  30, 2, 10, "jetfly");
+            Plane fly1 = new Plane(null,"LN1234",1000, Vehicle_Type.Jetfly,  30, 2, 10);
             fly1.PrintInfo();
             fly1.Run(fly1);
             bil1.Run(bil1);
