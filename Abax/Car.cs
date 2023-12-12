@@ -2,8 +2,9 @@
 
 class Car : Vehicle
 {
-   
-   
+    private Vehicle _vehicleImplementation;
+
+
     public string color { get; set; }
 
 
@@ -12,16 +13,22 @@ class Car : Vehicle
         this.color = color;
     }
 
-    public void PrintInfo(string name)
+    public void PrintInfo()
     {
+        
         base.PrintInfo();
-        Console.WriteLine($"Bil: {name}\nFarge: {color}\nVektklasse:\n-----");
+        Console.WriteLine($"Farge: {color}\n------\n");
+    }
+
+    public override void Run(Vehicle vehicle)
+    {
+        _vehicleImplementation.Run(vehicle);
     }
 
     public void Run(Car car)
     {
         Console.WriteLine($"Bil med følgende egenskaper bees om å kjøre:");
-        car.PrintInfo("car");
+        PrintInfo();
         Console.WriteLine("For å starte bilen trykk på 'A', for å avbryte oppstart, trykk på 'X'");
         var input = Console.ReadLine();
         if (input != null)
@@ -72,9 +79,6 @@ class Car : Vehicle
     }
 
 
-    public override void Run(Vehicle vehicle)
-    {
-        throw new NotImplementedException();
-    }
+   
 }
 //reg.nr NF123456, 147kw effekt, maksfart 200km/t, grønn farge av typen lett kjøretøy. 

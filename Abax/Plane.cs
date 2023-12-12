@@ -2,7 +2,8 @@
 
 class Plane : Vehicle
 {
-    
+    private Vehicle _vehicleImplementation;
+
     public int Wingspan { get;}
     public int Weigth_Capacity { get;}
     public int Weigth_Self { get;}
@@ -24,13 +25,13 @@ class Plane : Vehicle
 
     public override void Run(Vehicle vehicle)
     {
-        throw new NotImplementedException();
+        _vehicleImplementation.Run(vehicle);
     }
 
     public void Run(Plane plane)
     {
         Console.WriteLine($"Fly med spesifikasjoner:");
-        plane.PrintInfo();
+        PrintInfo();
         Console.WriteLine("Bees om å ta av fra rullebanen.");
         Console.WriteLine("Trykk 'A' for å tillate at flyet letter. Trykk 'X' for å avbryte");
         var input = Console.ReadLine();
@@ -50,7 +51,5 @@ class Plane : Vehicle
             return;
         }
     }
-
-    
 }
 //fly med kjennetegn LN1234, 1000kw effekt, 30m vingespenn, 2tonn lasteevne, 10 tonn egenvekt I flyklasse jetfly

@@ -11,7 +11,7 @@ namespace Abax
     {
         public string Reg_no { get; set; }
         public decimal? Max_Speed { get; }
-        
+
         public decimal Effect { get; set; }
 
         public Vehicle_Type? Type { get; set; }
@@ -32,9 +32,13 @@ namespace Abax
 
         public virtual void PrintInfo()
         {
+            Console.WriteLine($"Klasse: {this}");
+            Console.WriteLine($"Type: {Type}");
             Console.WriteLine($"Reg.nr.: {Reg_no}");
             Console.WriteLine($"Effekt: {Effect}kw");
-            Console.WriteLine($"Type: {Type}");
+            if (Max_Speed != null) Console.WriteLine($"Maksfart: {Max_Speed}{Enheter[nameof(Max_Speed)]}");
+
+
         }
 
         public abstract void Run(Vehicle vehicle);

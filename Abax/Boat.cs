@@ -2,7 +2,8 @@
 
 class Boat : Vehicle
 {
-   
+    private Vehicle _vehicleImplementation;
+
     public double gross_tonnage { get; set; }
 
 
@@ -19,14 +20,17 @@ class Boat : Vehicle
 
     public override void Run(Vehicle vehicle)
     {
-        throw new NotImplementedException();
+        _vehicleImplementation.Run(vehicle);
     }
 
     public void Run(Boat boat)
     {
         base.PrintInfo();
-        Console.WriteLine(boat.gross_tonnage);
+        Console.WriteLine(gross_tonnage);
     }
+
+
+   
     
 }
 //båt med kjennetegn ABC123, 100kw effekt, maksfart på 30knop, 500kg bruttotonnasje.

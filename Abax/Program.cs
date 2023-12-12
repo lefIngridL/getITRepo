@@ -5,9 +5,9 @@
         static void Main(string[] args)
         {
             Car bil1 = new Car(200,"NF123456", 147,Vehicle_Type.LettKjøretøy , "grønn");
-            bil1.PrintInfo("bil1");
+            bil1.PrintInfo();
             Car bil2 = new Car(195,"NF654321",150, Vehicle_Type.LettKjøretøy, "blå");
-            bil2.PrintInfo("bil2");
+            bil2.PrintInfo();
             bil1.Comp(bil2);
             Plane fly1 = new Plane(null,"LN1234",1000,Vehicle_Type.Jetfly,  30, 2, 10, "jetfly");
             fly1.PrintInfo();
