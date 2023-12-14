@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KlikkerSpill", "..\KlikkerS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagerStyringSys", "..\LagerStyringSys\LagerStyringSys.csproj", "{57AE08F2-D6D1-412E-B27F-E5FCB9C6A35C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapeContSys", "..\ShapeContSys\ShapeContSys.csproj", "{63AAA4E7-DE7F-4CB5-80CF-81DB9F2F600F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShapeContSys", "..\ShapeContSys\ShapeContSys.csproj", "{63AAA4E7-DE7F-4CB5-80CF-81DB9F2F600F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harry_Potter", "..\Harry_Potter\Harry_Potter.csproj", "{DA85D51A-CE4B-4D21-99FC-9E544237C163}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{63AAA4E7-DE7F-4CB5-80CF-81DB9F2F600F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63AAA4E7-DE7F-4CB5-80CF-81DB9F2F600F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63AAA4E7-DE7F-4CB5-80CF-81DB9F2F600F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA85D51A-CE4B-4D21-99FC-9E544237C163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA85D51A-CE4B-4D21-99FC-9E544237C163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA85D51A-CE4B-4D21-99FC-9E544237C163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA85D51A-CE4B-4D21-99FC-9E544237C163}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

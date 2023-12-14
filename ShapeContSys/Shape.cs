@@ -8,10 +8,7 @@ namespace ShapeContSys
 {
     internal abstract class Shape
     {
-        protected Dictionary<string, string> Enheter = new Dictionary<string, string>
-        {
-            { }
-        };
+        
         public string Name { get; set; }
         public string Color { get; set; }
 
