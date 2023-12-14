@@ -22,3 +22,4 @@ public enum WandFlex
     Unyielding,
     Brittle,
 }
+

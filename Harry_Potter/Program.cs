@@ -4,13 +4,18 @@
     {
         public static void Main(string[] args)
         {
+            var Book = new SpellBook();
             List<Item> inventory = new List<Item>();
             inventory.Add(new Pet(Item_Type.Pet, null, null, "Hedwig", Pet_List.Owl));
             inventory.Add(new Wand(Item_Type.Wand, null, null, WandWood.Holly, WandCore.Phoenix_feather, 11.5, WandFlex.Supple));
-            Character Harry = new Character("Harry Potter", House.Griffindor, inventory, new Purse(100, 50, 25));
+            Character Harry = new Character("Harry Potter", House.Griffindor, inventory, new Purse(100, 50, 25), new SpellKnowledge(Book.Spells));
 
             Harry.PrintChar();
-
+            foreach (var spell in Harry.KnownSpells.Knowledge)
+            {
+                spell.PrintSpell();
+            }
+            
 
             Store Butikk = new Store();
             Enter(Butikk, Harry);
@@ -21,7 +26,7 @@
         {
             while (true)
             {
-                Console.WriteLine($"\nYou are standing in front of a store.\n Press 'A' to enter the store, or press 'X' to stay on the street.\n");
+                Console.WriteLine($"\nYou are standing in front of a store.\n Press 'A' to enter the store, or press 'X' to stay on the street.\nTo Practice spells at Hogwarts, press 'H'");
                 var input = Console.ReadLine();
 
                 switch (input)
@@ -32,6 +37,9 @@
 
                     case "X":
                         Console.WriteLine("You are standing in Diagon Alley");
+                        break;
+                    case "H":
+                        Hogwarts(Butikk, Harry);
                         break;
                 }
             }
@@ -51,12 +59,12 @@
                     case "P":
                         Console.WriteLine("You have choosen to look at pets.\n");
                         Butikk.ShowPets();
-                        BuyPet(Butikk);
+                        BuyPet(Butikk, Harry);
                         break;
                     case "W":
                         Console.WriteLine("You have choosen to look at wands.\n");
                         Butikk.ShowWands();
-                        BuyWand(Butikk);
+                        BuyWand(Butikk, Harry);
                         break;
                     case "X":
                         Console.WriteLine("You left the store.");
@@ -79,24 +87,33 @@
                     {
                         case "1":
                             Butikk.Pets[0].PrintInfo();
-                            Console.WriteLine(Harry._Purse.Gold);
+                            Harry._Purse.Balance();
+                            if (Harry._Purse.Gold >= Butikk.Pets[0].Price) Console.WriteLine("You can afford it");
+                            else Console.WriteLine("You can't afford to buy it");
                             break;
                         case "2":
                             Butikk.Pets[1].PrintInfo();
+                            Harry._Purse.Balance();
+                            if (Harry._Purse.Gold >= Butikk.Pets[1].Price) Console.WriteLine("You can afford it");
+                            else Console.WriteLine("You can't afford to buy it");
                             break;
                         case "3":
                             Butikk.Pets[2].PrintInfo();
+                            Harry._Purse.Balance();
+                            if (Harry._Purse.Gold >= Butikk.Pets[2].Price) Console.WriteLine("You can afford it");
+                            else Console.WriteLine("You can't afford to buy it");
                             break;
                         default:
                             Console.WriteLine("Invalid input");
                             break;
                     }
-                }else if (input == "X") Shop(Butikk);
+                }
+                else if (input == "X") Shop(Butikk, Harry);
 
             }
         }
 
-        public static void BuyWand(Store Butikk)
+        public static void BuyWand(Store Butikk, Character Harry)
         {
             while (true)
             {
@@ -108,20 +125,52 @@
                     {
                         case "1":
                             Butikk.Wands[0].PrintInfo();
+                            Harry._Purse.Balance();
+                            if (Harry._Purse.Gold >= Butikk.Wands[0].Price) Console.WriteLine("You can afford it");
+                            else Console.WriteLine("You can't afford to buy it");
                             break;
                         case "2":
                             Butikk.Wands[1].PrintInfo();
+                            Harry._Purse.Balance();
+                            if (Harry._Purse.Gold >= Butikk.Wands[1].Price) Console.WriteLine("You can afford it");
+                            else Console.WriteLine("You can't afford to buy it");
                             break;
                         case "3":
                             Butikk.Wands[2].PrintInfo();
+                            Harry._Purse.Balance();
+                            if (Harry._Purse.Gold >= Butikk.Wands[2].Price) Console.WriteLine("You can afford it");
+                            else Console.WriteLine("You can't afford to buy it");
                             break;
                         default:
                             Console.WriteLine("Invalid input");
                             break;
                     }
                 }
-                else if (input == "X") Shop(Butikk);
+                else if (input == "X") Shop(Butikk, Harry);
             }
+        }
+
+        public static void Hogwarts(Store Butikk, Character Harry)
+        {
+            while (true)
+            {
+                Console.WriteLine("You are at Hogwarts school of Witchcraft and Wizardry. Time to practice some spells!\n press 'S' to continue or 'X' to travel back to Diagon Alley.");
+                var input = Console.ReadLine();
+
+                if (input != null)
+                {
+                    switch (input)
+                    {
+                        case "S":
+                            Console.WriteLine("Lets have look at the spellbook!");
+                            break;
+                        case "X":
+                            Enter(Butikk, Harry);
+                            break;
+                    }
+                }
+            }
+
         }
     }
 }

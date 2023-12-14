@@ -12,4 +12,9 @@ public class Purse
         Silver = silver;
         Bronze = bronze;
     }
+
+    public void Balance()
+    {
+        Console.WriteLine($"You look in your purse and find: \n{Gold} {Coinage.GoldGalleon}s\n{Silver}{Coinage.SilverSickle}s and\n{Bronze} {Coinage.BronzeKnut}s\n");
+    }
 }

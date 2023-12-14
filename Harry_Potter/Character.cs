@@ -7,13 +7,15 @@ public class Character
     public List<Item> Inventory { get; set; }
 
     public Purse _Purse { get; set; }
+    public SpellKnowledge KnownSpells { get; set; }
 
-    public Character(string name, House house, List<Item> inventory, Purse purse)
+    public Character(string name, House house, List<Item> inventory, Purse purse, SpellKnowledge knownSpells)
     {
         Name = name;
         House = house;
         Inventory = inventory;
         _Purse = purse;
+        KnownSpells = knownSpells;
     }
 
     public void PrintChar()
