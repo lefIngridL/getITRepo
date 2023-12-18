@@ -4,11 +4,13 @@ public class Pet : Item
 {
     
     public string? Name { get; set; }
+    public int years { get; set; }
     public Pet_List PetType { get; set; }
 
-    public Pet(Item_Type type, int? price, Coinage? coinage, string? name, Pet_List petType) : base(type, price, coinage)
+    public Pet(Item_Type type, int? price, Coinage? coinage, string? name, int years, Pet_List petType) : base(type, price, coinage)
     {
         Name = name;
+        this.years = years;
         PetType = petType;
     }
 
@@ -20,7 +22,7 @@ public class Pet : Item
         {
             Navn = "Nameless";
         }else Navn = Name;
-        Console.WriteLine($"Name: {Navn}\nType of pet: {PetType}\n");
+        Console.WriteLine($"Name: {Navn}\nType of pet: {PetType}\nAge in years: {years}\n");
     }
     
 }

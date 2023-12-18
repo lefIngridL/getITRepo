@@ -4,4 +4,5 @@ public enum Item_Type
 {
     Pet,
     Wand,
+    Book,
 }

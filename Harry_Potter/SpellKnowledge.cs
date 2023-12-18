@@ -8,4 +8,26 @@ public class SpellKnowledge
     {
         Knowledge = knowledge;
     }
+
+    public void Show()
+    {
+        int nr = 1;
+        foreach (var spell in Knowledge)
+        {
+            Console.WriteLine($"----Nr. {nr}----");
+            spell.PrintSpell();
+            nr++;
+        }
+    }
+
+    public void ShowShort()
+    {
+        int nr = 1;
+        foreach (var spell in Knowledge)
+        {
+            Console.WriteLine($"----Nr. {nr}----");
+            spell.PrintShortSpell();
+            nr++;
+        }
+    }
 }
