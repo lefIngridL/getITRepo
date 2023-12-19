@@ -1,4 +1,4 @@
-﻿namespace Harry_Potter;
+﻿namespace Harry_Potter.Magic;
 
 public class Spell
 {

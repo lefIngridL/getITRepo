@@ -1,8 +1,12 @@
-﻿namespace Harry_Potter;
+﻿using Harry_Potter.Items;
+using Harry_Potter.Items.Pets;
+using Harry_Potter.Items.Wands;
+
+namespace Harry_Potter.Entity;
 
 public class Inventory
 {
-    public List<Pet> Pets {get; set; }
+    public List<Pet> Pets { get; set; }
     public List<Wand> Wands { get; set; }
     public List<SpellBook> SpellBooks { get; set; }
 

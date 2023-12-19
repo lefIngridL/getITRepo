@@ -1,4 +1,7 @@
-﻿namespace Harry_Potter;
+﻿using Harry_Potter.Items;
+using Harry_Potter.Items.Money;
+
+namespace Harry_Potter.Items.Wands;
 
 public class Wand : Item
 {
@@ -15,7 +18,7 @@ public class Wand : Item
         Flex = flex;
     }
 
-    public void PrintInfo()
+    public override void PrintInfo()
     {
         base.PrintInfo();
         Console.WriteLine($"---Wand Properties----\nTreverk: {Wood}\nCore: {Core}\nLength: {Inch}\nFlexibility: {Flex}\n");

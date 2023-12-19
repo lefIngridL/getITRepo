@@ -1,4 +1,7 @@
-﻿namespace Harry_Potter;
+﻿using Harry_Potter.Items;
+using Harry_Potter.Items.Money;
+
+namespace Harry_Potter.Items.Pets;
 
 public class Rat : Pet
 {

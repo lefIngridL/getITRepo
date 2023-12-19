@@ -1,8 +1,10 @@
-﻿namespace Harry_Potter;
+﻿using Harry_Potter.Items.Money;
+
+namespace Harry_Potter.Items;
 
 public abstract class Item
 {
-    public Item_Type Type { get; set; }
+    public Item_Type Type { get; }
     public int? Price { get; set; }
     public Coinage? Coinage { get; set; }
 
@@ -13,12 +15,11 @@ public abstract class Item
         Coinage = coinage;
     }
 
-    public void PrintInfo()
+    public virtual void PrintInfo()
     {
-        var pris = string.Empty;
         if (Price != null)
         {
-            pris = Price.ToString();
+            var pris = Price.ToString();
             Console.WriteLine($"Type: {Type}\nPrice: {pris} {Coinage}");
         }
         else Console.WriteLine($"Type: {Type}");

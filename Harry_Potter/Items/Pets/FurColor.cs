@@ -1,4 +1,4 @@
-﻿namespace Harry_Potter;
+﻿namespace Harry_Potter.Items.Pets;
 
 public enum FurColor
 {

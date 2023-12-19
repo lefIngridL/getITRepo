@@ -1,4 +1,7 @@
-﻿namespace Harry_Potter;
+﻿using Harry_Potter.Items;
+using Harry_Potter.Items.Money;
+
+namespace Harry_Potter.Items.Pets;
 
 public class Owl : Pet
 {
@@ -9,7 +12,7 @@ public class Owl : Pet
         Species = species;
     }
 
-    public void PrintInfo()
+    public override void PrintInfo()
     {
         base.PrintInfo();
         Console.WriteLine($"Owl species: {Species}\n");

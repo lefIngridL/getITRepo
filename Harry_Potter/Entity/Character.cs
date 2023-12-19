@@ -1,36 +1,39 @@
-﻿namespace Harry_Potter;
+﻿using Harry_Potter.Items.Money;
+using Harry_Potter.Magic;
+
+namespace Harry_Potter.Entity;
 
 public class Character
 {
-    public string Name { get; set; }
-    public House House { get; set; }
-    public Inventory _Inventory { get; set; }
+    private string Name { get; set; }
+    private House House { get; set; }
+    public Inventory Inventory { get; set; }
 
-    public Purse _Purse { get; set; }
+    public Purse MyPurse { get; set; }
     public SpellKnowledge KnownSpells { get; set; }
 
-    public Character(string name, House house, Inventory inventory, Purse purse, SpellKnowledge knownSpells)
+    public Character(string name, House house, Inventory inventory, Purse myPurse, SpellKnowledge knownSpells)
     {
         Name = name;
         House = house;
-        _Inventory = inventory;
-        _Purse = purse;
+        Inventory = inventory;
+        MyPurse = myPurse;
         KnownSpells = knownSpells;
     }
 
     public void PrintChar()
     {
         Console.WriteLine($"Navn: {Name}\nHus: {House}\nInnhold i koffert:");
-        foreach (var inventorySpellBook in _Inventory.SpellBooks)
+        foreach (var inventorySpellBook in Inventory.SpellBooks)
         {
             inventorySpellBook.PrintInfo();
         }
 
-        foreach (var wand in _Inventory.Wands)
+        foreach (var wand in Inventory.Wands)
         {
             wand.PrintInfo();
         }
-        foreach (var item in _Inventory.Pets)
+        foreach (var item in Inventory.Pets)
         {
             item.PrintInfo();
         }
@@ -38,7 +41,7 @@ public class Character
 
     public void LookAtBooks()
     {
-        foreach (var book in _Inventory.SpellBooks)
+        foreach (var book in Inventory.SpellBooks)
         {
             book.PrintInfo();
         }
@@ -47,7 +50,7 @@ public class Character
     public void LookAtWands()
     {
         Console.WriteLine("List of your wands:");
-        foreach (var wand in _Inventory.Wands)
+        foreach (var wand in Inventory.Wands)
         {
             wand.PrintInfo();
         }
@@ -56,7 +59,7 @@ public class Character
     public void LookAtPets()
     {
         Console.WriteLine("List of your Pets:");
-        foreach (var pet in _Inventory.Pets)
+        foreach (var pet in Inventory.Pets)
         {
             pet.PrintInfo();
         }

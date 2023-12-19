@@ -1,4 +1,7 @@
-﻿namespace Harry_Potter;
+﻿using Harry_Potter.Items.Money;
+using Harry_Potter.Magic;
+
+namespace Harry_Potter.Items;
 
 public class SpellBook : Item
 {
@@ -42,7 +45,7 @@ public class SpellBook : Item
         }
     }
 
-    public void PrintInfo()
+    public override void PrintInfo()
     {
         Console.WriteLine($"\nTittel: {Title}");
         base.PrintInfo();
