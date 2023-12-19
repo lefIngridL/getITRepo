@@ -10,7 +10,7 @@ public static class Hogwarts
         {
             Console.Clear();
             Console.WriteLine(
-                "You are at Hogwarts school of Witchcraft and Wizardry. Time to practice some spells!\n press 'S' to read a Spell Book, 'W' to cast a spell, or 'X' to travel back to Diagon Alley.");
+                "You are at Hogwarts school of Witchcraft and Wizardry. Time to practice some spells!\n'S' - Read a Spell Book\n'W' - Cast a spell\n'I' - Open inventory\n'X' - Travel back to Diagon Alley.");
             var input = Console.ReadLine();
 
             if (input != null)
@@ -58,6 +58,9 @@ public static class Hogwarts
                             Console.WriteLine("Invalid input");
                             Thread.Sleep(1000);
                         }
+                        break;
+                    case "I":
+                        harry.Trunk(store, harry);
                         break;
 
                     case "X":

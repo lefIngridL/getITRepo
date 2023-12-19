@@ -12,7 +12,7 @@ public static class Game
 {
     public static void Start()
     {
-        var Harry = new Character("Harry Potter", House.Griffindor, new Inventory(new List<Pet>(), new List<Wand>(), new List<SpellBook>()), new Purse(100, 50, 25), new SpellKnowledge(new List<Spell>()));
+        var Harry = new Character("Harry Potter","male", House.Griffindor, new Inventory(new List<Pet>(), new List<Wand>(), new List<SpellBook>()), new Purse(100, 50, 25), new SpellKnowledge(new List<Spell>()));
         var standardBookOfSpellsGrade1 = new SpellBook(Item_Type.Book, 10, Coinage.GoldGalleon, "Standard Book Of Spells Grade 1", new List<Spell>
             {
                 new ("Lumos", "Wand-Lighting Charm", SpellType.Charm, "LOO-mos",
@@ -78,7 +78,7 @@ public static class Game
         {
             Console.Clear();
             Console.WriteLine($"\nYou are standing in front of a store in Diagon Alley.\n" +
-                              $"Command List:\n'A' - Enter the store\n'X' - Stay on the street.\n'H' - Travel to Hogwarts\n'EXIT' - exit the game.");
+                              $"Command List:\n'A' - Enter the store\n'X' - Stay on the street.\n'H' - Travel to Hogwarts\n'I' - Open inventory\n'Q' - Profile\n'EXIT' - exit the game.");
             var input = Console.ReadLine();
 
             switch (input)
@@ -93,6 +93,12 @@ public static class Game
                 case "H":
                     Hogwarts.AtHogwarts(store, harry);
                     break;
+                case "I":
+                    harry.Trunk(store, harry);
+                    break;
+                case "Q":
+                    harry.ProfilePage();
+                    break;
                 case "EXIT":
                     game = false;
                     break;
@@ -102,7 +108,7 @@ public static class Game
                     break;
 
             }
-        }
+        }return;
     }
 
 

@@ -87,7 +87,7 @@ public class Store
         {
             Console.Clear();
             Console.WriteLine($"\nYou are standing inside the store. What would you like to browse?\n" +
-                              $"Command List:\nP - Look at pets\nW - Look at wands\nB - Look at books\nX - Leave the store.");
+                              $"Command List:\n-P - Look at pets\n-W - Look at wands\n-B - Look at books\n-I - Open inventory\nX - Leave the store.");
             var input = Console.ReadLine();
 
             if (!int.TryParse(input, out _))
@@ -102,6 +102,9 @@ public class Store
                         break;
                     case "B":
                         BuyBook(store, harry);
+                        break;
+                    case "I":
+                        harry.Trunk(store, harry);
                         break;
                     case "X":
                         Console.WriteLine("You left the store.");
