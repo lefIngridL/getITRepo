@@ -73,11 +73,12 @@ public static class Game
 
     public static void Enter(Store store, Character harry)
     {
-        while (true)
+        bool game = true;
+        while (game)
         {
             Console.Clear();
             Console.WriteLine($"\nYou are standing in front of a store in Diagon Alley.\n" +
-                              $"Command List:\n'A' - Enter the store\n'X' - Stay on the street.\n'H' - Travel to Hogwarts");
+                              $"Command List:\n'A' - Enter the store\n'X' - Stay on the street.\n'H' - Travel to Hogwarts\n'EXIT' - exit the game.");
             var input = Console.ReadLine();
 
             switch (input)
@@ -91,6 +92,9 @@ public static class Game
                     break;
                 case "H":
                     Hogwarts.AtHogwarts(store, harry);
+                    break;
+                case "EXIT":
+                    game = false;
                     break;
                 default:
                     Console.WriteLine("Invalid command");

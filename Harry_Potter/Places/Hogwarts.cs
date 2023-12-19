@@ -43,7 +43,9 @@ public static class Hogwarts
                                         {
                                             harry.KnownSpells.Knowledge[spellNum - 1].CastSpell();
                                             Console.WriteLine("Want to know more about this spell? Read a book!");
+                                            Thread.Sleep(6000);
                                         }
+                                        else Console.WriteLine("Invalid Input");
                                     }
                                     else Console.WriteLine("Invalid Input");
                                     break;
@@ -102,7 +104,7 @@ public static class Hogwarts
     public static void ReadABook(Store store, Character harry)
     {
         Console.Clear();
-        Console.WriteLine("Lets have look at the spellbook!");
+        Console.WriteLine("Lets have look at the spell book!");
         harry.LookAtBooks();
         Console.WriteLine("Indicate by number, which book you want to look at.\n'X' - EXIT");
         var numStr = Console.ReadLine();
