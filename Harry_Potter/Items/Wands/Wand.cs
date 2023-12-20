@@ -9,8 +9,9 @@ public class Wand : Item
     public WandCore Core { get; set; }
     public double Inch { get; set; }
     public WandFlex Flex { get; set; }
+    public readonly Item_Type _type = Item_Type.Wand;
 
-    public Wand(Item_Type type, int? price, Coinage? coinage, WandWood wood, WandCore core, double inch, WandFlex flex) : base(type, price, coinage)
+    public Wand(int? price, Coinage? coinage, WandWood wood, WandCore core, double inch, WandFlex flex) : base(price, coinage)
     {
         Wood = wood;
         Core = core;
@@ -21,7 +22,7 @@ public class Wand : Item
     public override void PrintInfo()
     {
         base.PrintInfo();
-        Console.WriteLine($"---Wand Properties----\nTreverk: {Wood}\nCore: {Core}\nLength: {Inch}\nFlexibility: {Flex}\n");
+        Console.WriteLine($"Item type: {_type}\n\n---Wand Properties----\nTreverk: {Wood}\nCore: {Core}\nLength: {Inch}\nFlexibility: {Flex}\n");
     }
 
 }

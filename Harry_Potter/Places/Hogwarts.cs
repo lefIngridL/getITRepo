@@ -10,7 +10,7 @@ public static class Hogwarts
         {
             Console.Clear();
             Console.WriteLine(
-                "You are at Hogwarts school of Witchcraft and Wizardry. Time to practice some spells!\n'S' - Read a Spell Book\n'W' - Cast a spell\n'I' - Open inventory\n'X' - Travel back to Diagon Alley.");
+                 "You are at Hogwarts school of Witchcraft and Wizardry. Time to practice some spells!\n 'S' - Read a Spell Book\n'W' - Cast a spell\n'I' - Open inventory\n'X' - Travel back to Diagon Alley.");
             var input = Console.ReadLine();
 
             if (input != null)
@@ -25,7 +25,7 @@ public static class Hogwarts
                         Console.WriteLine("Lets have a look at the spells you know!");
                         harry.PrintSpellKnowledge();
 
-                        Console.WriteLine("Indicate by number, wich Spell you want to Cast.\n'X' - EXIT");
+                        Console.WriteLine("Indicate by number, which Spell you want to Cast.\n'X' - EXIT");
                         var SpellStr = Console.ReadLine();
 
                         if (SpellStr != null)
@@ -78,23 +78,19 @@ public static class Hogwarts
 
     public static void LearnNewSpell(int num, int num2, Character harry, Store store)
     {
-        Console.WriteLine(
-            "Would you like to learn this spell? type 'Y' for 'yes', type 'N' for no.\nType 'X' to exit.");
+        Console.WriteLine("\n'X' - exit.");
         var input = Console.ReadLine();
 
+        harry.KnownSpells.Knowledge.Add(harry.Inventory.SpellBooks[num - 1].Spells[num2 - 1]);
+        Console.WriteLine("You now know the following Spells:");
+        harry.KnownSpells.Show();
+        Thread.Sleep(6000);
         switch (input)
         {
-            case "Y":
-                harry.KnownSpells.Knowledge.Add(harry.Inventory.SpellBooks[num - 1].Spells[num2 - 1]);
-                Console.WriteLine("You now know the following Spells:");
-                harry.KnownSpells.Show();
-                Thread.Sleep(6000);
-                break;
-            case "N":
+            
+            case "X":
                 ReadABook(store, harry);
                 break;
-            case "X":
-                return;
             default:
                 Console.WriteLine("Invalid Input");
                 break;
@@ -141,7 +137,7 @@ public static class Hogwarts
                                         {
                                             harry.Inventory.SpellBooks[num - 1].Spells[num2 - 1].PrintSpell();
                                             Console.WriteLine(
-                                                "Would you like to learn this spell? type 'Y' for 'yes'.\n'X' - EXIT.");
+                                                "Would you like to learn this spell?\n'Y' - 'yes'.\n'X' - EXIT.");
                                             var ans = Console.ReadLine();
                                             switch (ans)
                                             {

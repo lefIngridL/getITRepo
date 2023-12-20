@@ -13,7 +13,7 @@ public static class Game
     public static void Start()
     {
         var Harry = new Character("Harry Potter","male", House.Griffindor, new Inventory(new List<Pet>(), new List<Wand>(), new List<SpellBook>()), new Purse(100, 50, 25), new SpellKnowledge(new List<Spell>()));
-        var standardBookOfSpellsGrade1 = new SpellBook(Item_Type.Book, 10, Coinage.GoldGalleon, "Standard Book Of Spells Grade 1", new List<Spell>
+        var standardBookOfSpellsGrade1 = new SpellBook( 10, Coinage.GoldGalleon, "Standard Book Of Spells Grade 1", new List<Spell>
             {
                 new ("Lumos", "Wand-Lighting Charm", SpellType.Charm, "LOO-mos",
                     "Illuminates the tip of the caster's wand, allowing the caster to see in the dark.",
@@ -40,7 +40,7 @@ public static class Game
 
             });
 
-        var standardBookOfSpellsGrade2 = new SpellBook(Item_Type.Book, 10, Coinage.GoldGalleon, "Standard Book Of Spells Grade 2", new List<Spell>
+        var standardBookOfSpellsGrade2 = new SpellBook( 10, Coinage.GoldGalleon, "Standard Book Of Spells Grade 2", new List<Spell>
             {
                 new ("Tarantallegra","Dancing Feet Spell",SpellType.Charm,"ta-RON-ta-LEG-gra","Makes a target's legs spasm wildly out of control, making it appear as though they are dancing.","Italian tarantella, a kind of fast country dance once popular in parts of Italy,\n supposedly from the frantic motion caused by the bite of a tarantula;\n and allegro, a musical term meaning \"quick\".", "The target began flailing and dancing as if posessed!"),
                 new ("Expelliarmus", "Disarming Charm",SpellType.Charm, "ex-PELL-ee-ARE-muss","Forces whatever an opponent is holding to fly out of their hand.","Probably a combination of Latin expello, meaning \"expel\", and arma, meaning \"weapon\".", "The tagets weapon flew from their hand!" ),
@@ -53,8 +53,8 @@ public static class Game
 
             });
 
-        Harry.Inventory.Pets.Add(new Owl(Item_Type.Pet, null, null, "Hedwig", 1, Pet_List.Owl, OwlSpecies.Barn_owl));
-        Harry.Inventory.Wands.Add(new Wand(Item_Type.Wand, null, null, WandWood.Holly, WandCore.Phoenix_feather, 11.5, WandFlex.Supple));
+        Harry.Inventory.Pets.Add(new Owl(null, null, "Hedwig", 1, OwlSpecies.Barn_owl));
+        Harry.Inventory.Wands.Add(new Wand(null, null, WandWood.Holly, WandCore.Phoenix_feather, 11.5, WandFlex.Supple));
         Harry.KnownSpells.Knowledge.Add(standardBookOfSpellsGrade1.Spells[0]);
 
         Harry.PrintChar();
@@ -73,12 +73,12 @@ public static class Game
 
     public static void Enter(Store store, Character harry)
     {
-        bool game = true;
-        while (game)
+     
+        while (true)
         {
             Console.Clear();
             Console.WriteLine($"\nYou are standing in front of a store in Diagon Alley.\n" +
-                              $"Command List:\n'A' - Enter the store\n'X' - Stay on the street.\n'H' - Travel to Hogwarts\n'I' - Open inventory\n'Q' - Profile\n'EXIT' - exit the game.");
+                              $"Command List:\n-A - Enter the store\n-X - Stay on the street.\n-H - Travel to Hogwarts\n-I - Open inventory\n-Q - Profile\n-EXIT - exit the game.");
             var input = Console.ReadLine();
 
             switch (input)
@@ -88,7 +88,7 @@ public static class Game
                     break;
 
                 case "X":
-                    Console.WriteLine("You are standing in Diagon Alley");
+                    Console.WriteLine("You are standing in Diagon Alley.");
                     break;
                 case "H":
                     Hogwarts.AtHogwarts(store, harry);
@@ -100,7 +100,7 @@ public static class Game
                     harry.ProfilePage();
                     break;
                 case "EXIT":
-                    game = false;
+                    Environment.Exit(0);
                     break;
                 default:
                     Console.WriteLine("Invalid command");
@@ -108,7 +108,7 @@ public static class Game
                     break;
 
             }
-        }return;
+        }
     }
 
 

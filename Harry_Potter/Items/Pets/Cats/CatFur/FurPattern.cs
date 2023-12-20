@@ -1,4 +1,4 @@
-﻿namespace Harry_Potter.Items.Pets;
+﻿namespace Harry_Potter.Items.Pets.Cats.CatFur;
 
 public enum FurPatterns
 {

@@ -6,6 +6,7 @@ namespace Harry_Potter.Items;
 public class SpellBook : Item
 {
     public string Title { get; set; }
+    public readonly Item_Type Type = Item_Type.Book;
     public List<Spell> Spells { get; set; }
     //{
     //    new Spell("Aberto","Opening Charm", SpellType.Charm, "Ah-bare-toh", "A spell used to open doors.", "Portuguese for 'open'. Compare Spanish 'abierto'."),
@@ -28,7 +29,7 @@ public class SpellBook : Item
 
     //};
 
-    public SpellBook(Item_Type type, int? price, Coinage? coinage, string title, List<Spell> spells) : base(type, price, coinage)
+    public SpellBook(int? price, Coinage? coinage, string title, List<Spell> spells) : base(price, coinage)
     {
         Title = title;
         Spells = spells;
@@ -47,7 +48,7 @@ public class SpellBook : Item
 
     public override void PrintInfo()
     {
-        Console.WriteLine($"\nTittel: {Title}");
+        Console.WriteLine($"\n--Item type: {Type}--\n\nTittel: {Title}");
         base.PrintInfo();
     }
 }

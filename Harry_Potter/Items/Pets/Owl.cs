@@ -6,8 +6,8 @@ namespace Harry_Potter.Items.Pets;
 public class Owl : Pet
 {
     public OwlSpecies? Species { get; set; }
-
-    public Owl(Item_Type type, int? price, Coinage? coinage, string? name, int years, Pet_List petType, OwlSpecies? species) : base(type, price, coinage, name, years, petType)
+    public readonly Pet_List _petType = Pet_List.Owl;
+    public Owl(int? price, Coinage? coinage, string? name, int years, OwlSpecies? species) : base(price, coinage, name, years)
     {
         Species = species;
     }
@@ -15,6 +15,6 @@ public class Owl : Pet
     public override void PrintInfo()
     {
         base.PrintInfo();
-        Console.WriteLine($"Owl species: {Species}\n");
+        Console.WriteLine($"Pet type: {_petType}\nOwl species: {Species}\n------\n");
     }
 }
