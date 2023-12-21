@@ -22,7 +22,7 @@ public class Wand : Item
     public override void PrintInfo()
     {
         base.PrintInfo();
-        Console.WriteLine($"Item type: {_type}\n\n---Wand Properties----\nTreverk: {Wood}\nCore: {Core}\nLength: {Inch}\nFlexibility: {Flex}\n");
+        Console.WriteLine($"Item type: {_type}\n\n---Wand Properties----\nWood: {Wood}\nCore: {Core}\nLength: {Inch} Inches\nFlexibility: {Flex}\n");
     }
 
 }

@@ -5,6 +5,7 @@ using Harry_Potter.Items.Wands;
 using Harry_Potter.Items;
 using Harry_Potter.Magic;
 using Harry_Potter.Places;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Harry_Potter;
 
@@ -12,8 +13,8 @@ public static class Game
 {
     public static void Start()
     {
-        var Harry = new Character("Harry Potter","male", House.Griffindor, new Inventory(new List<Pet>(), new List<Wand>(), new List<SpellBook>()), new Purse(100, 50, 25), new SpellKnowledge(new List<Spell>()));
-        var standardBookOfSpellsGrade1 = new SpellBook( 10, Coinage.GoldGalleon, "Standard Book Of Spells Grade 1", new List<Spell>
+        var Harry = new Character("Harry Potter", "male", House.Griffindor, new Inventory(new List<Pet>(), new List<Wand>(), new List<SpellBook>()), new Purse(100, 50, 25), new SpellKnowledge(new List<Spell>()));
+        var standardBookOfSpellsGrade1 = new SpellBook(10, Coinage.GoldGalleon, "Standard Book Of Spells Grade 1", new List<Spell>
             {
                 new ("Lumos", "Wand-Lighting Charm", SpellType.Charm, "LOO-mos",
                     "Illuminates the tip of the caster's wand, allowing the caster to see in the dark.",
@@ -40,7 +41,7 @@ public static class Game
 
             });
 
-        var standardBookOfSpellsGrade2 = new SpellBook( 10, Coinage.GoldGalleon, "Standard Book Of Spells Grade 2", new List<Spell>
+        var standardBookOfSpellsGrade2 = new SpellBook(10, Coinage.GoldGalleon, "Standard Book Of Spells Grade 2", new List<Spell>
             {
                 new ("Tarantallegra","Dancing Feet Spell",SpellType.Charm,"ta-RON-ta-LEG-gra","Makes a target's legs spasm wildly out of control, making it appear as though they are dancing.","Italian tarantella, a kind of fast country dance once popular in parts of Italy,\n supposedly from the frantic motion caused by the bite of a tarantula;\n and allegro, a musical term meaning \"quick\".", "The target began flailing and dancing as if posessed!"),
                 new ("Expelliarmus", "Disarming Charm",SpellType.Charm, "ex-PELL-ee-ARE-muss","Forces whatever an opponent is holding to fly out of their hand.","Probably a combination of Latin expello, meaning \"expel\", and arma, meaning \"weapon\".", "The tagets weapon flew from their hand!" ),
@@ -56,6 +57,8 @@ public static class Game
         Harry.Inventory.Pets.Add(new Owl(null, null, "Hedwig", 1, OwlSpecies.Barn_owl));
         Harry.Inventory.Wands.Add(new Wand(null, null, WandWood.Holly, WandCore.Phoenix_feather, 11.5, WandFlex.Supple));
         Harry.KnownSpells.Knowledge.Add(standardBookOfSpellsGrade1.Spells[0]);
+        string WelcomeMsg = "Welcome to my humble Harry Potter simulator!";
+        Welcome(WelcomeMsg);
 
         Harry.PrintChar();
         foreach (var spell in Harry.KnownSpells.Knowledge)
@@ -71,9 +74,56 @@ public static class Game
         Enter(Butikk, Harry);
     }
 
+    public static void Welcome(string text)
+    {
+        string text2 = "----tap a key to continue----";
+        int width = Console.WindowWidth;
+        int leftMargin = (width - text.Length) / 2;
+        int leftMargin2 = (width - text.Length) / 2;
+
+        Console.WriteLine("\n\n" + new string(' ', leftMargin) + text);
+        
+        DisplayLargeText(text);
+        Console.WriteLine("\n\n" + new string(' ', leftMargin) + text2);
+        Console.ReadKey();
+    }
+
+    static void DisplayLargeText(string text)
+    {
+        // ASCII art for larger text
+        string[] largeText = {
+
+            "                           ______    ______                   ",
+            " ||    ||      //\\\\     ||    \\\\  ||    \\  \\\\    //    ",
+            "  ||    ||     //  \\\\    ||    ||  ||    ||  \\\\  //       ",
+            "  ||====||    //====\\\\   ||___//   ||___//    \\\\//        ",
+            " ||    ||   //      \\\\  ||  \\\\    ||  \\\\      //        ",
+            " ||    ||  //        \\\\ ||   \\\\   ||   \\\\    //         ",
+            "",
+            "    ______             __________  __________   __________     ______    ",
+            "  ||    \\\\    ____       ||          ||      ||_________|    ||    \\  ",
+            "   ||    ||  //    \\\\     ||          ||      ||_______       ||    || ",
+            "    ||___//  ||      ||    ||          ||      ||_______|      ||___//   ",
+            "  ||        \\\\    //     ||          ||      ||_________     || \\\\   ",
+            "   ||          ----       ||          ||      ||_________|    ||  \\\\   ",
+
+        };
+
+
+        //Console.WriteLine("\n\n" + new string(' ', leftMargin) + text);
+        
+        foreach (string line in largeText)
+        {
+            int width = Console.WindowWidth;
+            int leftMargin = (width - line.Length) / 2;
+            //Console.WriteLine(line);
+            Console.WriteLine(new string(' ', leftMargin) + line);
+        }
+        
+    }
     public static void Enter(Store store, Character harry)
     {
-     
+
         while (true)
         {
             Console.Clear();

@@ -2,9 +2,12 @@
 using Harry_Potter.Items;
 using Harry_Potter.Items.Money;
 using Harry_Potter.Items.Pets;
+using Harry_Potter.Items.Pets.PetNames;
 using Harry_Potter.Items.Pets.Cats;
 using Harry_Potter.Items.Pets.Cats.CatFur;
 using Harry_Potter.Items.Wands;
+using System;
+using System.Data;
 
 namespace Harry_Potter.Places;
 
@@ -13,14 +16,22 @@ public class Store
 
     public List<Pet> Pets = new()
     {
-        new Cat( 15, Coinage.GoldGalleon, null, 1,  FurColor.Gray,FurLength.Long,FurPatterns.Tabby,FurQuality.DoubleCoat),
-        new Owl( 12, Coinage.GoldGalleon, null, 1, OwlSpecies.Barn_owl),
-        new Rat( 5, Coinage.GoldGalleon, null, 1,  FurColor.Gray),
+        GenPet(),
+        GenPet(),
+        GenPet(),
+        GenPet(),
+        GenPet(),
     };
     public List<Wand> Wands = new()
     {
-        new Wand(7,Coinage.GoldGalleon, WandWood.Vine, WandCore.Dragon_heartstring, 10.75, WandFlex.Slightly_yielding),
-        new Wand(7,Coinage.GoldGalleon,WandWood.Ash,WandCore.Dittany_Stalk, 10, WandFlex.Slightly_springy),
+        
+        GenWand(),
+        GenWand(),
+        GenWand(),
+        GenWand(),
+        GenWand(),
+        GenWand(),
+
     };
 
     public List<SpellBook> Books = new();
@@ -217,6 +228,56 @@ public class Store
         }
     }
 
+    public void randWand()
+    {
+        while (true)
+        {
+            Wand wand = GenWand();
+            wand.PrintInfo();
+            Console.ReadKey();
+        }
+    }
+
+    internal static Wand GenWand()
+    {
+        var rand = new Random();
+        int likely = rand.Next(0, 1000);
+        int rarity;
+        if (likely <= 5)
+        {
+            rarity = 0;
+        }
+        else if (likely is > 5 and < 995)
+        {
+            rarity = 1;
+        }
+        else { rarity = 2; }
+        int wood = rand.Next(0, 50);
+        int flex = rand.Next(0, 19);
+        int core = rand.Next(0, 21);
+        double length;
+        WandWood Wood = (WandWood)wood;
+        WandFlex Flex = (WandFlex)flex;
+        WandCore Core = (WandCore)core;
+        Wand wand = null;
+        switch (rarity)
+        {
+            case 0:
+                length = Math.Round(rand.NextDouble() * 2 + 7, rand.Next(0, 3), MidpointRounding.AwayFromZero);
+                wand = new Wand(7, Coinage.GoldGalleon, Wood, Core, length, Flex);
+                break;
+            case 1:
+                length = Math.Round(rand.NextDouble() * 5 + 9, rand.Next(0, 3), MidpointRounding.AwayFromZero);
+                wand = new Wand(7, Coinage.GoldGalleon, Wood, Core, length, Flex);
+                break;
+            case 2:
+                length = Math.Round(rand.NextDouble() * 2 + 14, rand.Next(0, 3), MidpointRounding.AwayFromZero);
+                wand = new Wand(7, Coinage.GoldGalleon, Wood, Core, length, Flex);
+                break;
+        }
+
+        return wand;
+    }
     internal static Pet GenPet()
     {
         var rand = new Random();
@@ -241,23 +302,26 @@ public class Store
     {
         var rand = new Random();
         int index = rand.Next(1, 6);
+        int name = rand.Next(0, 20);
+        CatNames catName = (CatNames)name;
+        string catNameStr = catName.ToString();
         Cat kitty = null;
         switch (index)
         {
             case 1:
                 int color3 = rand.Next(0, 6);
                 FurColor furColor3 = (FurColor)color3;
-                kitty = new KneazleCat(30, Coinage.GoldGalleon, null, rand.Next(0, 35), furColor3);
+                kitty = new KneazleCat(30, Coinage.GoldGalleon, catNameStr, rand.Next(0, 35), furColor3);
                 break;
             case 2:
                 int color2 = rand.Next(0, 6);
                 FurColor furColor2 = (FurColor)color2;
-                kitty = new PersianCat(20, Coinage.GoldGalleon, null, rand.Next(0, 20), furColor2);
+                kitty = new PersianCat(20, Coinage.GoldGalleon, catNameStr, rand.Next(0, 20), furColor2);
                 break;
             case 3:
                 int color0 = rand.Next(0, 6);
                 FurColor furColor0 = (FurColor)color0;
-                kitty = new SiameseCat(15, Coinage.GoldGalleon, null, rand.Next(0, 20), furColor0);
+                kitty = new SiameseCat(15, Coinage.GoldGalleon, catNameStr, rand.Next(0, 20), furColor0);
                 break;
             case 4:
                 int color1 = rand.Next(0, 6);
@@ -265,7 +329,7 @@ public class Store
                 int pattern1 = rand.Next(0, 3);
                 FurPatterns furPatterns1 = (FurPatterns)pattern1;
 
-                kitty = new ForestCat(10, Coinage.GoldGalleon, null, rand.Next(0, 20), furColor1, furPatterns1);
+                kitty = new ForestCat(10, Coinage.GoldGalleon, catNameStr, rand.Next(0, 20), furColor1, furPatterns1);
                 break;
             case 5:
                 int color = rand.Next(0, 6);
@@ -277,7 +341,7 @@ public class Store
                 int quality = rand.Next(0, 9);
                 FurQuality furQuality = (FurQuality)quality;
 
-                kitty = new Cat(8, Coinage.GoldGalleon, null, rand.Next(0, 20), furColor, furLength, furPatterns,
+                kitty = new Cat(8, Coinage.GoldGalleon, catNameStr, rand.Next(0, 20), furColor, furLength, furPatterns,
                     furQuality);
                 break;
         }
@@ -288,17 +352,23 @@ public class Store
     {
         var rand = new Random();
         int index = rand.Next(0, 14);
+        int name = rand.Next(0, 20);
         OwlSpecies owlSpecies = (OwlSpecies)index;
-        var birdy = new Owl(15, Coinage.GoldGalleon, null, rand.Next(0, 11), owlSpecies);
-        return birdy;
+        OwlNames owlName = (OwlNames)name;
+        string owlNameStr = owlName.ToString();
+        var bird = new Owl(15, Coinage.GoldGalleon, owlNameStr, rand.Next(0, 11), owlSpecies);
+        return bird;
     }
 
     internal static Rat GenRat()
     {
         var rand = new Random();
         int color = rand.Next(0, 6);
+        int name = rand.Next(0, 10);
         FurColor furColor = (FurColor)color;
-        var mousy = new Rat(5, Coinage.SilverSickle, null, rand.Next(0, 5), furColor);
+        RatNames ratName = (RatNames)name;
+        string ratNameStr = ratName.ToString();
+        var mousy = new Rat(5, Coinage.SilverSickle, ratNameStr, rand.Next(0, 5), furColor);
         return mousy;
     }
 

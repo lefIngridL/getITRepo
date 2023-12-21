@@ -21,6 +21,10 @@ namespace Harry_Potter
             //var bibi = new ForestCat(8, Coinage.SilverSickle, "Bibi", 2, FurColor.Black,
             //    FurPatterns.Tuxedo);
             //bibi.PrintInfo();
+            
+
+
+
         }
 
 
