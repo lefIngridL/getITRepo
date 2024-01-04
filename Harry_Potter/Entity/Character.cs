@@ -27,7 +27,7 @@ public class Character
 
     public void PrintChar()
     {
-        Console.WriteLine($"Navn: {Name}\nHus: {House}\nInnhold i koffert:");
+        Console.WriteLine($"Name: {Name}\nHouse: {House}\nTrunk inventory:");
         foreach (var inventorySpellBook in Inventory.SpellBooks)
         {
             inventorySpellBook.PrintInfo();
@@ -71,6 +71,7 @@ public class Character
 
     public void ProfilePage()
     {
+        Console.Clear();
         Console.WriteLine($"---Name---\n{Name}\n---Gender---\n{Gender}\n---House---\n{House}");
         PrintSpellKnowledge();
         
@@ -98,7 +99,7 @@ public class Character
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("'P' - Browse Pets\n'B' - Browse books\n'W' - Browse wands\n'X' - to exit inventory");
+            Console.WriteLine("'P' - Browse Pets\n'B' - Browse books\n'W' - Browse wands\n'M' - Check Purse\n'X' - to exit inventory");
             var input = Console.ReadLine();
             switch (input)
             {
@@ -115,6 +116,12 @@ public class Character
                 case "W":
                     BrowseWands(store, some);
 
+                    break;
+                case "M":
+                    Console.Clear();
+                    some.MyPurse.Balance();
+                    Console.WriteLine("press any key to return");
+                    Console.ReadLine();
                     break;
                 default:
                     Console.WriteLine("Invalid input");

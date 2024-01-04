@@ -13,6 +13,7 @@ public static class Game
 {
     public static void Start()
     {
+        var newPerson = CreateChar();
         var Harry = new Character("Harry Potter", "male", House.Griffindor, new Inventory(new List<Pet>(), new List<Wand>(), new List<SpellBook>()), new Purse(100, 50, 25), new SpellKnowledge(new List<Spell>()));
         var standardBookOfSpellsGrade1 = new SpellBook(10, Coinage.GoldGalleon, "Standard Book Of Spells Grade 1", new List<Spell>
             {
@@ -58,37 +59,74 @@ public static class Game
         Harry.Inventory.Wands.Add(new Wand(null, null, WandWood.Holly, WandCore.Phoenix_feather, 11.5, WandFlex.Supple));
         Harry.KnownSpells.Knowledge.Add(standardBookOfSpellsGrade1.Spells[0]);
         string WelcomeMsg = "Welcome to my humble Harry Potter simulator!";
-        Welcome(WelcomeMsg);
+        //Welcome(WelcomeMsg, Harry);
+        Welcome(WelcomeMsg, newPerson);
 
-        Harry.PrintChar();
-        foreach (var spell in Harry.KnownSpells.Knowledge)
-        {
-            spell.PrintSpell();
-        }
+        //Console.WriteLine("Here is info in Harry Potter:");
+        //Harry.PrintChar();
+        //foreach (var spell in Harry.KnownSpells.Knowledge)
+        //{
+        //    spell.PrintSpell();
+        //}
 
 
         var Butikk = new Store();
         Butikk.Books.Add(standardBookOfSpellsGrade1);
         Butikk.Books.Add(standardBookOfSpellsGrade2);
-        Thread.Sleep(2000);
-        Enter(Butikk, Harry);
+        
+        //Enter(Butikk, Harry);
+        Enter(Butikk, newPerson);
     }
 
-    public static void Welcome(string text)
+    public static Character CreateChar()
     {
+        Console.WriteLine("Write name of new player: ");
+        string name = Console.ReadLine();
+        Console.WriteLine("What is the gender of the new player?");
+        string gender = Console.ReadLine();
+        Harry_Potter.Entity.House house = House.UnSorted;
+        List<Pet> pets = new List<Pet>();
+        List<Wand> wands = new List<Wand>();
+        List<SpellBook> spellBooks = new List<SpellBook>();
+        Harry_Potter.Entity.Inventory inventory = new Inventory(pets, wands, spellBooks);
+        Harry_Potter.Items.Money.Purse purse = new Purse(100, 50, 70);
+        List<Spell> spellsList = new List<Spell>();
+        Harry_Potter.Magic.SpellKnowledge spells = new SpellKnowledge(spellsList);
+        var Person = new Character(name, gender, house, inventory, purse, spells);
+        return Person;
+    }
+
+    public static void Welcome(string text, Character Harry)
+    {
+        
         string text2 = "----tap a key to continue----";
         int width = Console.WindowWidth;
         int leftMargin = (width - text.Length) / 2;
-        int leftMargin2 = (width - text.Length) / 2;
+        int leftMargin2 = (width - text2.Length) / 2;
 
         Console.WriteLine("\n\n" + new string(' ', leftMargin) + text);
-        
-        DisplayLargeText(text);
+
+        DisplayLargeText();
         Console.WriteLine("\n\n" + new string(' ', leftMargin) + text2);
         Console.ReadKey();
+        Console.Clear();
+        
+        string text3 = $"Here is info on the new player:";
+        int leftMargin3 = (width - text3.Length) / 2;
+        Console.WriteLine("\n\n" + new string(' ', leftMargin) + text3);
+        Thread.Sleep(1500);
+        Harry.PrintChar();
+
+        foreach (var spell in Harry.KnownSpells.Knowledge)
+        {
+            spell.PrintSpell();
+        }
+        Console.WriteLine("\n\n" + new string(' ', leftMargin) + text2);
+        Console.ReadKey();
+
     }
 
-    static void DisplayLargeText(string text)
+    static void DisplayLargeText()
     {
         // ASCII art for larger text
         string[] largeText = {
@@ -111,7 +149,7 @@ public static class Game
 
 
         //Console.WriteLine("\n\n" + new string(' ', leftMargin) + text);
-        
+
         foreach (string line in largeText)
         {
             int width = Console.WindowWidth;
@@ -119,7 +157,7 @@ public static class Game
             //Console.WriteLine(line);
             Console.WriteLine(new string(' ', leftMargin) + line);
         }
-        
+
     }
     public static void Enter(Store store, Character harry)
     {
@@ -127,8 +165,8 @@ public static class Game
         while (true)
         {
             Console.Clear();
-            Console.WriteLine($"\nYou are standing in front of a store in Diagon Alley.\n" +
-                              $"Command List:\n-A - Enter the store\n-X - Stay on the street.\n-H - Travel to Hogwarts\n-I - Open inventory\n-Q - Profile\n-EXIT - exit the game.");
+            Console.WriteLine($"\nYou are standing in front the entrance to Diagon Alley.\n" +
+                              $"Command List:\n-A - Enter Diagon Alley\n-X - Stay in the Leaky Cauldron.\n-H - Travel to Hogwarts\n-I - Open inventory\n-Q - Profile\n-EXIT - exit the game.");
             var input = Console.ReadLine();
 
             switch (input)
@@ -138,7 +176,8 @@ public static class Game
                     break;
 
                 case "X":
-                    Console.WriteLine("You are standing in Diagon Alley.");
+                    
+                    LeakyCauldron.TomsBar(store, harry);
                     break;
                 case "H":
                     Hogwarts.AtHogwarts(store, harry);

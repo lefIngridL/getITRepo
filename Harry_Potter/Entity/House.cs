@@ -6,4 +6,5 @@ public enum House
     Hufflepuff,
     Ravenclaw,
     Slytherin,
+    UnSorted,
 }

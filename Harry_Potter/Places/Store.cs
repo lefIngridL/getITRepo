@@ -99,8 +99,8 @@ public class Store
         while (control)
         {
             Console.Clear();
-            Console.WriteLine($"\nYou are standing inside the store. What would you like to browse?\n" +
-                              $"Command List:\n-P - Look at pets\n-W - Look at wands\n-B - Look at books\n-I - Open inventory\n-X - Leave the store.");
+            Console.WriteLine($"\nYou are wandering down Diagon Alley. Would you Like to enter a store?\n" +
+                              $"Command List:\n-P - Look at pets in the Magical Menagerie\n-W - Look at wands in Ollivanders\n-B - Look at books in Flourish and Blotts\n-I - Open inventory\n-X - Leave the store.");
             var input = Console.ReadLine();
 
             if (!int.TryParse(input, out _))
@@ -145,7 +145,7 @@ public class Store
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("You have chosen to look at pets.\n");
+            Console.WriteLine("You have chosen to look at pets in the Magical Menagerie.\n");
             store.ShowPets();
             Console.WriteLine("would you like to purchase one of our pets?\n\nCommands:\n-Pick a Nr from the list - Buy a Pet.\n-IP - Look at Pets you own.\n-X - EXIT.");
             var input2 = Console.ReadLine();
@@ -377,7 +377,7 @@ public class Store
         Console.Clear();
         while (true)
         {
-            Console.WriteLine("You have chosen to look at wands.\n");
+            Console.WriteLine("You have chosen to look at wands in Ollivanders wand shop.\n");
             store.ShowWands();
             Console.WriteLine("Would you like to purchase a wand?\ncommands:\n-Pick a Nr from the list - Buy a Wand.\n-IW - Look at wands you own.\n-X - EXIT\n");
             var input = Console.ReadLine();
@@ -456,7 +456,7 @@ public class Store
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("You are standing in front of a bookshelf\n");
+            Console.WriteLine("You are standing in front of a bookshelf in Flourish and Blotts\n");
             Console.WriteLine("Commands:\n-X - EXIT.\n-IB - Look at books you own.\n-Pick a Nr from the list - Buy a Spell Book.\n");
             store.ShowBooks();
             var input = Console.ReadLine();
