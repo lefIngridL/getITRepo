@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShapeContSys
+namespace ShapeContSys.Shapes
 {
     internal abstract class Shape
     {
-        
+
         public string Name { get; set; }
         public string Color { get; set; }
 
@@ -18,6 +18,7 @@ namespace ShapeContSys
             Color = color;
         }
 
-        public abstract decimal AreaCalc();
+        public abstract double AreaCalc();
+        public abstract void PrintShape();
     }
 }

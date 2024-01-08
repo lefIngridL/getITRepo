@@ -3,7 +3,7 @@ using Harry_Potter.Items.Money;
 
 namespace Harry_Potter.Items.Pets;
 
-public class Pet : Item
+public class Pet : Item, IPrintInfo
 {
 
     public string? Name { get; set; }

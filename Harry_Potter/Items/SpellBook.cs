@@ -3,7 +3,7 @@ using Harry_Potter.Magic;
 
 namespace Harry_Potter.Items;
 
-public class SpellBook : Item
+public class SpellBook : Item, IPrintInfo
 {
     public string Title { get; set; }
     public readonly Item_Type Type = Item_Type.Book;

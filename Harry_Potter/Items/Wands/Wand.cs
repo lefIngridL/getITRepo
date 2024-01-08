@@ -3,7 +3,7 @@ using Harry_Potter.Items.Money;
 
 namespace Harry_Potter.Items.Wands;
 
-public class Wand : Item
+public class Wand : Item, IPrintInfo
 {
     public WandWood Wood { get; set; }
     public WandCore Core { get; set; }
