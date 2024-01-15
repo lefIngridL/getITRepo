@@ -8,7 +8,7 @@ Console.WriteLine("Lag et hus!");
 Console.WriteLine("Hvor mange etasjer har huset?");
 var EtasjeNRStr = Console.ReadLine();
 int EtasjeNr = int.Parse(EtasjeNRStr);
-HUS.BuildHouse(EtasjeNr);
+Construct.BuildHouse(EtasjeNr);
 
 //Lag en app som kan bygge et hus.
 //Et hus kan bestå av etasjer og rom.
