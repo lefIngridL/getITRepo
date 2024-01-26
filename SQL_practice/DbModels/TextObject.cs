@@ -1,4 +1,4 @@
-﻿namespace SQL_practice.ViewModel;
+﻿namespace SQL_practice.DbModels;
 
 public class TextObject
 {

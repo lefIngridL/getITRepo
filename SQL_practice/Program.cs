@@ -1,60 +1,43 @@
-using System.Net.Mime;
-using System.Text.Json;
-using SQL_practice.ViewModel;
+using System.Data.SqlClient;
+using Dapper;
+using TextObject = SQL_practice.DbModels.TextObject;
+using SQL_practice.DbModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
-
-//Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
 app.UseHttpsRedirection();
 
-var filename = "textObjects.json";
-
+var connStr = "Data Source= (localdb)\\localhost;Initial Catalog=TextObjects;Integrated Security=True";
+//"Data Source=localhost;Initial Catalog=TextObjects;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False"
 app.MapGet("/textobjects", async () =>
 {
-    if (File.Exists(filename))
-    {
-        var json = await File.ReadAllTextAsync(filename);
-        var textObjects = JsonSerializer.Deserialize<TextObject[]>(json);
-        return textObjects;
-    }
-    //var files = Directory.GetFiles(".", "*.json");
-    //var textObject = new List<TextObject>();
-    //foreach (var file in files)
-    //{
-    //    var json = await File.ReadAllTextAsync(filename);
-    //    var textObjects = JsonSerializer.Deserialize<TextObject[]>(json);
-    //    return textObjects;
-
-    //}
-    return new TextObject[0];
-
+    var conn = new SqlConnection(connStr);
+    var sql = @"
+        SELECT t.[Index], t.Text, c1.Color ForeColor, c2.Color BackColor
+        FROM TextObject t
+        JOIN Color c1 ON t.ForeColor = c1.Id
+        JOIN Color c2 ON t.BackColor = c2.Id
+    ";
+    var textObjects = await conn.QueryAsync<TextObject>(sql);
+    return textObjects;
 });
 app.MapPost("/textobjects", async (TextObject textObject) =>
 {
-    var json = File.Exists(filename) ? await File.ReadAllTextAsync(filename) : "[]";
-    var textObjects = JsonSerializer.Deserialize<TextObject[]>(json).ToList();
-    textObjects.Add(textObject);
-    json = JsonSerializer.Serialize(textObjects);
-    await File.WriteAllTextAsync(filename, json);
-    return textObjects;
-    //
-
+    var conn = new SqlConnection(connStr);
+    var dbTextObject = new
+    {
+        Index = textObject.Index,
+        Text = textObject.Text,
+        ForeColor = Enum.Parse<Color>(textObject.ForeColor),
+        BackColor = Enum.Parse<Color>(textObject.BackColor)
+    };
+    var sql = @"INSERT INTO TextObject VALUES (@Index, @Text, @ForeColor, @BackColor)";
+    var rowsAffected = await conn.ExecuteAsync(sql, dbTextObject);
+    return rowsAffected;
 });
 
 app.UseStaticFiles();
 app.Run();
-
-

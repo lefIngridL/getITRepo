@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .myGrid {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+        }
+
+            .myGrid > div {
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+        .myForm {
+            display: grid;
+            grid-template-columns: repeat(2, 150px);
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <p>HEI HEI Hei hei HEI hei!</p>
+    <script>
+         let model;
+        init();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                    ${createFormHtml()}
+                    <div class="myGrid">
+                        ${createSquaresHtml()}
+                    </div>
+                `;
+        }
+    </script>
+</body>
+</html>
