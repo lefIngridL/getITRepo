@@ -7,7 +7,7 @@ import './App.css'
 function Box({ id, fun, color }) {
     const [colour, setColor] = useState(color);
     const [classColor, setClassColor] = useState("square");
-    const [funOn, setFunOn] = useState(() => ON );
+    const [funOn, setFunOn] = useState(() => ON);
 
     function ON() {
         console.log("ON");
@@ -49,7 +49,7 @@ function Grid({ fun, color }) {
 
 export default function App() {
     const [useClick, setUseClick] = useState(true);
-
+    const [mode, setMode] = useState(true)
     const handleClick = () => {
         alert('Clicked!');
     };
@@ -61,14 +61,17 @@ export default function App() {
     const [styleColor, setStyleColor] = useState("blue");
     function reds() {
         console.log("RED");
-       
+
     }
-    return (
-        <>
-            <p>testing 123</p>
-            <Grid fun={reds} color={styleColor} />
+    if (mode) {
+        return (
+            <>
+                <p>testing 123</p>
+                <Grid fun={reds} color={styleColor} />
 
-        </>
+            </>
 
-    );
+        );
+    }
+
 }

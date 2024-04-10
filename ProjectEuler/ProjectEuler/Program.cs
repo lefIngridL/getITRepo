@@ -8,4 +8,7 @@ Console.WriteLine("Hello, World!");
 //Quest4.Pali();
 //Quest6.Square(100);
 //Quest5.Multi(20);
-Quest7.Prime();
+//Quest7.Prime();
+//Quest8.Adjecents(13);
+//Quest9.PyTri();
+Quest10.Prime();

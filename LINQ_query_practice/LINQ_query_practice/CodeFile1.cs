@@ -1,0 +1,1 @@
+﻿public enum CurrencyEnum { Pln, Usd, Eur }
